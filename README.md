@@ -26,3 +26,8 @@ Inspect the `schema_meta.gql` file to understand how it models classes and their
 <example>.gql contains a simple schema in 'insert' data form. Use this as a template.
 To compile the schema into a set of 'define' statements do
 `<run compile script>`
+
+## Questions and answers
+
+* Why not just add schema metadata as attributes within the schema? 
+	* It would be inappropriate for each data instance to include attributes with metadata about its ontology class as instances will already have attributes with instance metadata.
