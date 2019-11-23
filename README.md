@@ -7,11 +7,12 @@ What problem does this toolkit solve? Existing ontology languages like OWL have 
 * include metadata such as definitions, elucidations, examples, references, revision history
 * visualise the ontology as a graph 
 * export the ontology to different formats
-Grakn provides WorkBase but this doesn't meet the above requirements:
-* no elegant way to attach metadata to a schema
-* schema visualisation has limited user control and the layout currently doesn't work for larger schemas
-* no way to the keyspace as a schema to gql or another format.
-This toolkit provides an environment for developing a grakn schema. It uses a 'meta-schema' as a keyspace in which the developer models the new schema as a grakn dataset. The developer writes the new schema as a series of `graql` `insert` statements. To visualise the schema, the developer inspects the ontology using the `WorkBase` data visualiser. When the new schema is done, it is compiled to a series of `define` statements, i.e. the standard grakn schema form.
+
+With Grakn there are two ways to develop a schema: writing a series of 'define' statements in a gql file or using the WorkBase GUI. Both fall short of the above requirements.
+
+This toolkit uses Grakn as an environment for developing a grakn schema. Specifically, the developer encodes the new schema classes as instances of classes of a 'meta-schema' through a script of `graql` `insert` statements. 
+The developer visualises the ontology using the `WorkBase` data visualiser, enabling far more flexible queries and click-based interaction than the built-in schema visualiser.  
+When the developer has written the schema in 'insert' form, the parser script compiles it to a series of `define` statements - the standard grakn schema format..
 
 ## Example
 
@@ -19,5 +20,3 @@ Inspect the `schema_meta.gql` file to understand how it models classes and their
 <example>.gql contains a simple schema in 'insert' data form. Use this as a template.
 To compile the schema into a set of 'define' statements do
 `<run compile script>`
-
-
