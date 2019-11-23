@@ -1,0 +1,167 @@
+# Meta schema
+
+################################################################################
+# PURPOSE
+
+# Schema for modelling grakn schema
+
+################################################################################
+# DESCRIPTION
+
+################################################################################
+# EXAMPLES
+
+################################################################################
+# USAGE
+
+################################################################################
+# REFERENCES
+
+#TODO link to doc
+
+################################################################################
+#NOTE
+
+################################################################################
+# STATUS
+
+################################################################################
+################################################################################
+
+define
+
+  ################
+  ################
+  ## ENTITIES ##
+  ################
+  ################
+
+  node sub entity,
+    has name,
+    has grakn-note,
+    has status,
+    abstract;
+
+  grakn-type sub node,
+    has ontology,
+    has ontology-version-IRI,
+    has purl,
+    has definition,
+    has elucidation,
+    has ontology-note,
+    has example,
+    has reference,
+    has issues,
+    has isabstract,
+    plays parent,
+    plays child,
+    plays playing-role,
+    abstract;
+
+  type-entity sub grakn-type,
+    plays has-attribute;
+
+  type-relation sub grakn-type,
+    plays has-attribute,
+    plays is-relation;
+
+  type-attribute sub grakn-type,
+    plays is-attribute-of,
+    has attr-datatype;
+
+  grakn-rule sub node,
+    has condition-when,
+    has condition-then;
+
+  ################
+  ################
+  ## RELATIONS ##
+  ################
+  ################
+
+  edge sub relation,
+    has name,
+    has grakn-note,
+    has status,
+    abstract;
+
+  # NB: this may screw up the graph layout
+  roleplaying sub edge,
+    has ontology,
+    has ontology-version-IRI,
+    has definition,
+    has elucidation,
+    has purl,
+    has reference,
+    has example,
+    has ontology-note,
+    has issues,
+    relates playing-role,
+    relates is-relation;
+
+  having-attribute sub edge,
+    relates has-attribute,
+    relates is-attribute-of;
+
+  parentship sub edge,
+    relates parent,
+    relates child;
+
+################
+################
+## ATTRIBUTES ##
+################
+################
+
+ontology sub attribute,
+  datatype string;
+
+ontology-version-IRI sub attribute,
+  datatype string;
+
+definition sub attribute,
+  datatype string;
+
+elucidation sub attribute,
+  datatype string;
+
+purl sub attribute,
+  datatype string;
+
+example sub attribute,
+  datatype string;
+
+reference sub attribute,
+  datatype string;
+
+ontology-note sub attribute,
+  datatype string;
+
+issues sub attribute,
+  datatype string;
+
+grakn-note sub attribute,
+  datatype string;
+
+status sub attribute,
+  datatype string;
+
+condition-when sub attribute,
+  datatype string;
+
+condition-then sub attribute,
+  datatype string;
+
+isabstract sub attribute,
+  datatype boolean;
+
+name sub attribute,
+  datatype string;
+
+attr-datatype sub attribute,
+  datatype string;
+################
+################
+## RULES ##
+################
+################
