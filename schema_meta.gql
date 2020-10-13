@@ -56,19 +56,18 @@ define
     plays parent,
     plays child,
     plays playing-role,
+    plays has-attribute,
     abstract;
 
-  type-entity sub grakn-type,
-    plays has-attribute;
+  type-entity sub grakn-type;
 
   type-relation sub grakn-type,
-    plays has-attribute,
     plays is-relation;
-
+    
   type-attribute sub grakn-type,
     plays is-attribute-of,
-    has attr-datatype;
-
+    has attr-value;
+    
   grakn-rule sub node,
     has condition-when,
     has condition-then;
@@ -114,52 +113,52 @@ define
 ################
 
 ontology sub attribute,
-  datatype string;
+  value string;
 
 ontology-version-IRI sub attribute,
-  datatype string;
+  value string;
 
 definition sub attribute,
-  datatype string;
+  value string;
 
 elucidation sub attribute,
-  datatype string;
+  value string;
 
 purl sub attribute,
-  datatype string;
+  value string;
 
 example sub attribute,
-  datatype string;
+  value string;
 
 reference sub attribute,
-  datatype string;
+  value string;
 
 ontology-note sub attribute,
-  datatype string;
+  value string;
 
 issues sub attribute,
-  datatype string;
+  value string;
 
 grakn-note sub attribute,
-  datatype string;
+  value string;
 
 status sub attribute,
-  datatype string;
+  value string;
 
 condition-when sub attribute,
-  datatype string;
+  value string;
 
 condition-then sub attribute,
-  datatype string;
+  value string;
 
 isabstract sub attribute,
-  datatype boolean;
+  value boolean;
 
 name sub attribute,
-  datatype string;
+  value string;
 
-attr-datatype sub attribute,
-  datatype string;
+attr-value sub attribute,
+  value string;
 ################
 ################
 ## RULES ##
